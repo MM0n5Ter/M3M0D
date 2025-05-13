@@ -1,6 +1,7 @@
-package com.testmod.client.model;
+package com.testmod.client.render;
 
 import com.testmod.ExampleMod;
+import com.testmod.client.model.SampleGuardOperatorModel;
 import com.testmod.entity.operator.SampleGuardOperatorEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

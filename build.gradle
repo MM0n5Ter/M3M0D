@@ -209,3 +209,14 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
+
+def mcModsDir = file("D:\\Gamerz\\PCL 正式版 2.8.13\\.minecraft\\versions\\1.20.1-test\\mods")
+
+tasks.register("copyJarToMods", Copy) {
+    dependsOn tasks.build // 确保构建完成后再复制
+    from("$buildDir/libs")
+    include("*.jar")
+    into(mcModsDir)
+}
+
+tasks.build.finalizedBy("copyJarToMods")

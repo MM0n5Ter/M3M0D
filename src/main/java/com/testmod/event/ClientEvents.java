@@ -4,7 +4,7 @@ import com.testmod.ExampleMod;
 import com.testmod.client.input.KeyBindings;
 import com.testmod.client.model.ModModelLayers;
 import com.testmod.client.model.SampleGuardOperatorModel;
-import com.testmod.client.model.SampleGuardOperatorRender;
+import com.testmod.client.render.SampleGuardOperatorRender;
 import com.testmod.init.ModOperatorEntities;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -44,8 +44,6 @@ class ClientEvents {
         event.registerLayerDefinition(ModModelLayers.GUARD_OPERATOR_LAYER, SampleGuardOperatorModel::createBodyLayer);
         ExampleMod.LOGGER.info("Registered layer definition for Guard Operator.");
     }
-
-    public static boolean isCommandWheelOpen = false;
 
     @SubscribeEvent
     public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
