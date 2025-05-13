@@ -33,11 +33,8 @@ public class ModEvents {
         // 添加到原版 "建筑方块" 物品栏
         if (event.getTabKey() == ModCreativeTabsDefinition.MOD_TAB.getKey()) {
             event.accept(ModItems.DEBUG_STICK.get());
-        }
-
-        // 添加到原版 "刷怪蛋" 物品栏
-        if (event.getTabKey() == ModCreativeTabsDefinition.MOD_TAB.getKey()) {
             event.accept(ModOperatorItems.OPERATOR_SPAWN_EGG.get());
+            event.accept(ModItems.COMMAND_TABLET.get());
         }
 
         // 如果你还想向其他原版标签页或自己的标签页添加更多东西，在这里继续添加

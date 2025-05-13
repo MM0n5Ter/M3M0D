@@ -1,20 +1,22 @@
 package com.testmod.event;
 
 import com.testmod.ExampleMod;
+import com.testmod.client.input.KeyBindings;
 import com.testmod.client.model.ModModelLayers;
 import com.testmod.client.model.SampleGuardOperatorModel;
-import com.testmod.client.model.SampleGuardOperatorRender; // 注意路径可能需要调整为你实际的Render类路径
+import com.testmod.client.model.SampleGuardOperatorRender;
 import com.testmod.init.ModOperatorEntities;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 
 @Mod.EventBusSubscriber(modid = ExampleMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-public class ClientEvents {
+class ClientEvents {
 
     private ClientEvents() {} // 防止实例化
 
@@ -41,5 +43,15 @@ public class ClientEvents {
         ExampleMod.LOGGER.info("Registering layer definitions...");
         event.registerLayerDefinition(ModModelLayers.GUARD_OPERATOR_LAYER, SampleGuardOperatorModel::createBodyLayer);
         ExampleMod.LOGGER.info("Registered layer definition for Guard Operator.");
+    }
+
+    public static boolean isCommandWheelOpen = false;
+
+    @SubscribeEvent
+    public static void registerKeyMappings(RegisterKeyMappingsEvent event) {
+        ExampleMod.LOGGER.info("Registering key mapping...");
+        KeyBindings.initializeKeyMappings();
+        event.register(KeyBindings.OPEN_COMMAND_WHEEL_KEY);
+        ExampleMod.LOGGER.info("Registered key mapping.");
     }
 }

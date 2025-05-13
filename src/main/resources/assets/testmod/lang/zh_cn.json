@@ -1,0 +1,12 @@
+{
+  "key.category.testmod.command": "testmod快捷键",
+  "key.testmod.open_command_wheel": "打开指挥轮盘",
+
+  "item.testmod.debug_stick": "调试棒",
+  "item.testmod.guard_operator_spawn_egg": "近卫",
+  "item.testmod.command_tablet": "战术板",
+
+  "entity.testmod.sample_guard": "老陈",
+
+  "itemGroup.testmod.mod_tab": "博士"
+}
